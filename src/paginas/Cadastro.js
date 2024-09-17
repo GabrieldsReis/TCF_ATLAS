@@ -1,25 +1,48 @@
-function Cadastro(){
-   
-    return(
-<div>
-        <h1>Cadastro </h1><br></br>
+import './Cadastro.css'
+import {useEffect} from 'react';
 
-        <form action = "http://localhost/Gabriel-%20Atlas/Index.php" method = "POST">
-        <label>Nome</label>
-        <input type = "text" name="nome"/>
+function Cadastro() {
+    useEffect(() => {
+        const form = document.getElementById('formulario');
 
-        <label>Idade</label>
-        <input type = "text" name="idade"/>
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); //impede o envio normal do formulario,sem mostrar o php pro usuario
 
-        <label>Email</label>
-        <input type = "text" name="email"/>
+            const formData = new FormData(form); //cria um formData com os dados do usuario
 
-        <label>Senha</label>
-        <input type = "text" name="senha"/>
 
-        <input type = "submit" />
-        </form>
-     
+            //fetch é um api de requisição
+            fetch('http://localhost/Gabriel-%20Atlas/php_atlas/Cadastro.php', { method: 'POST', body: formData })
+                .then(response => response.text())//le a resposta como texto
+                .then(result => { console.log(result); })
+                .catch(error => { console.log('Ocorreu um erro inesperado:' + error); });
+                alert("ok")
+window.location.ref = '/' ;
+        });
+
+    });
+
+
+    return (
+        <div>
+            <h1 id="title">Cadastro </h1><br></br>
+
+            <form id="formulario" action="http://localhost/Gabriel-%20Atlas/php_atlas/Cadastro.php" method="POST">
+                <label>Nome</label>
+                <input type="text" name="nome" />
+
+                <label>Idade</label>
+                <input type="text" name="idade" />
+
+                <label>Email</label>
+                <input type="text" name="email" />
+
+                <label>Senha</label>
+                <input type="text" name="senha" />
+
+                <input type="submit" />
+            </form>
+
         </div>
     );
 }
