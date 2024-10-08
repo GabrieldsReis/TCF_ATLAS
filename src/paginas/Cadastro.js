@@ -1,7 +1,9 @@
 import './Cadastro.css'
 import {useEffect} from 'react';
+import {useNavigate} from "react-router-dom";
 
 function Cadastro() {
+    const x = useNavigate();
     useEffect(() => {
         const form = document.getElementById('formulario');
 
@@ -14,10 +16,18 @@ function Cadastro() {
             //fetch é um api de requisição
             fetch('http://localhost/Gabriel-%20Atlas/php_atlas/Cadastro.php', { method: 'POST', body: formData })
                 .then(response => response.text())//le a resposta como texto
-                .then(result => { console.log(result); })
+                .then(result => { console.log(result);
+                    if(result === "Cadastro Concluido"){
+                        x('/');
+                    }else {
+                        
+                        alert("cadastro nao concluido")
+                    }
+                 })
                 .catch(error => { console.log('Ocorreu um erro inesperado:' + error); });
-                alert("ok")
-window.location.ref = '/' ;
+                
+                
+
         });
 
     });

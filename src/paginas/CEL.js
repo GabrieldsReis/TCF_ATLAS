@@ -1,24 +1,32 @@
 import logo from '../logo.svg';
 import '../App.css';
 import { useEffect } from 'react';
-
+import {Link, useNavigate} from "react-router-dom";
+ 
 function CEL() {
-    // useEffect(() => {
-    //     const form = document.getElementById('formulario');
+    const x = useNavigate();
+    useEffect(() => {
+        const form = document.getElementById('formulario');
 
-    //     form.addEventListener('submit', (event) => {
-    //         event.preventDefault()
+        form.addEventListener('submit', (event) => {
+            event.preventDefault()
 
-    //         const formData = new FormData(form);
+            const formData = new FormData(form);
 
-    //         fetch('http://localhost/Gabriel-%20Atlas/php_atlas/CEL.php', { method: 'POST', body: formData })
-    //             .then(response => response.text())
-    //             .then(result => { console.log(result); })
-    //             .catch(error => { console.log('ocorreu um erro un esperado' + error); });
-    //         window.location.ref = "" //pagina inicial do app
+            fetch('http://localhost/Gabriel-%20Atlas/php_atlas/Login.php', { method: 'POST', body: formData })
+                .then(response => response.text())
+                .then(result => { console.log(result); 
+                   if(result === "logado"){
+                       x('/Principal');
+                   }else {alert("esse usuario nao existe")}
+                    
+                // useNavigate("/Principal");
 
-    //     });
-    // });
+                })
+                .catch(error => { console.log('ocorreu um erro esperado' + error); });
+
+        });
+    });
 
 
 
@@ -36,7 +44,7 @@ function CEL() {
 
                 <input type="submit"></input>
             </form>
-
+        <Link to = "/cadastro">Cadastre-se </Link>
         </div>
     );
 }
