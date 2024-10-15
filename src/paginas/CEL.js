@@ -25,8 +25,14 @@ function CEL() {
                 })
                 .catch(error => { console.log('ocorreu um erro esperado' + error); });
 
+
+
+
         });
-    });
+    }
+
+
+);
 
 
 
