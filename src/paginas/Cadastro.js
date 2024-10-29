@@ -1,6 +1,9 @@
-import './Cadastro.css'
+import './Cadastro.css';
 import {useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
+import { Helmet } from 'react-helmet';
+
+
 
 function Cadastro() {
     const x = useNavigate();
@@ -34,28 +37,58 @@ function Cadastro() {
 
 
     return (
-        <div>
-            <h1 id="title">Cadastro </h1><br></br>
+       
 
-            <form id="formulario" action="http://localhost/Gabriel-%20Atlas/php_atlas/Cadastro.php" method="POST">
-                <label>Nome</label>
-                <input type="text" name="nome" />
+      <div>
+      <Helmet>
+        <title>Cadastro Atlas</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      
+      <div className="background">
+        <div className="shape"></div>
+        <div className="shape"></div>
+      </div>
+      
+      <form
+        id="formulario"
+        action="http://localhost/Gabriel-%20Atlas/php_atlas/Login.php"
+        method="POST"
+      >
+       
+        <h3>Seja bem vindo !</h3>
 
-                <label>Idade</label>
-                <input type="text" name="idade" />
+        <label htmlFor="username">Username</label>
+        <input type="text" placeholder="Email" id="username" />
 
-                <label>Email</label>
-                <input type="text" name="email" />
-
-                <label>Senha</label>
-                <input type="text" name="senha" />
-
-                <input type="submit" />
-            </form>
-
+        <label htmlFor="password">Senha</label>
+        <input type="password" placeholder="Password" id="password" />
+        <br/>
+      <div>
+        <button id="cadas"type="submit">Cadastrar</button>
+        <br/><br/>
+        
         </div>
-    );
-}
+
+        <div className="social">
+          <div className="go">
+            <i className="fab fa-google"></i> Google
+          </div>
+        </div>
+      </form>
+
+      
+    </div>
+  );
+};
 
 
 

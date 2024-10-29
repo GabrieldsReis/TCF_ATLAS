@@ -1,5 +1,6 @@
-import '../App.css';
+import './Principal.css';
 import { useEffect } from 'react';
+import $ from 'jquery';
 
 
 function Principal() {
@@ -10,7 +11,7 @@ function Principal() {
                     // console.log(resultado)
                     const jsonData = `[${resultado.replace(/}{/g, '},{')}]`; // Adiciona vírgulas entre os objetos
                     const parsedData = JSON.parse(jsonData);
-                    console.log(parsedData)
+                   a(parsedData);
 
 
                })
@@ -21,43 +22,71 @@ function Principal() {
                })
 
 
-          
 
-     } for()
+
+     });
+     
+     function a(posts){
+          let tamanho = posts.length;
+          
+         var feed = $('feed');
+       
+
+          for(let i= 0;i<tamanho;i++){
+               console.log(posts[i]);
+          var postagens = document.createElement("div");
+          var imagem = document.createElement("img");
+          imagem.src = "https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png"
+          postagens.appendChild(imagem);
+          feed.appendChild(postagens);
+          }
+
+
+       
+     }
      
 
-);
+
 
      return (
+<div>
+<div class="menu-superior">
+        <i className="fa-brands fa-instagram"></i>
+        <div id="perfis-pai">
+            <img className="perfis" src   ="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png"/>
+            <img className="perfis" src   ="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png"/>
+            <img className="perfis" src   ="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png"/>
+            <img className="perfis" src   ="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png"/>
+            <img className="perfis" src  ="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png"/>
+            <img className="perfis" src  ="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png" />
+        </div>
+       
+    </div>
 
+    
+    <div className="container">
+        
+        <div className="aba-lateral">
+            <div className="menu-lateral">
+                <a id="imgs">🏠</a>
+                <a id="imgs">🔍</a>
+                <a id="imgs">❤️</a>
+                <a id="imgs">👤</a>
+                <a id="imgs">⚙️</a>
+            </div>
+        </div>
 
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-               {/* <img style = {{width:"10%"}}src = "https://www.creativefabrica.com/wp-content/uploads/2021/01/26/Cat-Icon-Graphics-8071439-1-1-580x387.jpg"/>
-    <img style = {{width:"10%"}}src = "https://www.creativefabrica.com/wp-content/uploads/2021/01/26/Cat-Icon-Graphics-8071439-1-1-580x387.jpg"/>
-    <img style = {{width:"10%"}}src = "https://www.creativefabrica.com/wp-content/uploads/2021/01/26/Cat-Icon-Graphics-8071439-1-1-580x387.jpg"/>
-     */}
-
-               {/* corpo do texto */}
-               <div style={{
-                    background
-                         : "#1E90FF", width: "100%", height: "100vh"
-               }}>
-
-
-                    {/* aba de menu */}
-                    <div style={{
-                         background
-                              : "black", height: "100vh", width: "8%"
-                    }} >a
-
-                    </div>
-
-
-               </div>
-          </div>
-
-
-
+     
+        <div id="feed" className="feed">
+            <div id = "Postagens">
+<img style ={{height:"100px"}} 
+src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png"></img>
+<p>aaa</p>
+            </div>
+            
+        </div>
+    </div>
+    </div>
 
 
      );
