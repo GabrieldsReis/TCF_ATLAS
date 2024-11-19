@@ -17,7 +17,6 @@ if($conn->connect_error){
 
 $email = $_POST["email"];//salva o email e senha em variaveis
 $senha = $_POST["senha"];
-
 $Login =  "SELECT * FROM usuarios WHERE Email = '$email' AND Senha = '$senha'" ; 
 //comando sql para buscar email e senha salvos na variavel
 $resultado = $conn -> query($Login);
