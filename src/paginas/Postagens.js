@@ -1,6 +1,18 @@
 import{useEffect} from 'react'
 
 function Postagens() {
+
+
+
+
+
+
+
+
+
+
+
+    
 // useEffect(()=>{
 
 // const form = document.querySelector("#postar");
@@ -43,7 +55,7 @@ return(
 <form id ="postar" action ="http://localhost/Gabriel-%20Atlas/php_atlas/Postagens.php" method ="POST" enctype ="multipart/form-data">
 <input type="file" name="fileUploud"></input><br/>
 <textarea name="texto"></textarea><br/>
-<input type="submit" onclick=""></input>
+<button name="arquivo" type="submit" ></button>
 </form>
 </div>
 )

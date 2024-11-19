@@ -1,4 +1,3 @@
-import logo from '../logo.svg';
 import '../App.css';
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
@@ -16,12 +15,12 @@ function CEL() {
 
             fetch('http://localhost/Gabriel-%20Atlas/php_atlas/Login.php', { method: 'POST', body: formData })
                 .then(response => response.text())
-                .then(result => { console.log(result); 
+                .then(result => { console.log('ok'+result); 
                    if(result === "logado"){
-                       x('/Principal');
+                    x('/Principal');
                    }else {alert("esse usuario nao existe")}
                     
-                // useNavigate("/Principal");
+               
 
                 })
                 .catch(error => { console.log('ocorreu um erro esperado' + error); });
