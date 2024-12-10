@@ -34,7 +34,7 @@ body {
   right: -30px;
   bottom: -80px;
 }
-form {
+#formulario {
   height: 600px;
   width: 400px;
   background-color: rgba(0, 0, 0, 0.795);
@@ -48,14 +48,14 @@ form {
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   padding: 50px 35px;
 }
-form * {
+#formulario * {
   font-family: "Poppins", sans-serif;
   color: #f7f7f7;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
 }
-form h3 {
+#formulario h3 {
   font-size: 32px;
   font-weight: 500;
   line-height: 42px;
@@ -103,8 +103,8 @@ cursor: pointer;
   background: linear-gradient(to left, #ff522fda, #f09619c2);
 }
 
-button:hover{  background: linear-gradient(to right,#1845adde, #23a2f6e0);}
-button {
+.loginbutton:hover{  background: linear-gradient(to right,#1845adde, #23a2f6e0);}
+.loginbutton {
 
   margin-top: 0px;
   width: 100%;
