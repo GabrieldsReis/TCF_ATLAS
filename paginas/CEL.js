@@ -72,7 +72,7 @@ function CEL() {
         <input name="senha" type="password" placeholder="Password" id="password" />
         <br/>
       <div>
-        <button type="submit">Login</button>
+        <button class="loginbutton" type="submit">Login</button>
         <br/><br/>
         <Link id = "link" to="/cadastro">Cadastre-se</Link>
         </div>
