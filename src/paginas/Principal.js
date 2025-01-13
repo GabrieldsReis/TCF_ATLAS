@@ -57,27 +57,35 @@ function Principal() {
     <div id="site">
       {/* Menu Superior */}
       <div href="#" className="menu-superior">
-        <button id="toggle-aba" onClick={toggleAbaLateral}>
+        {/* <button id="toggle-aba" onClick={toggleAbaLateral}>
           {isAbaLateralVisible ? '#' : '#'}
-        </button>
-        <div id="perfis-pai">
+        </button> */}
+        <div id="aba-superior">
           {/* Imagens de perfis */}
           <img className="perfis" src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png" alt="Perfil 1" />
-          <img className="perfis" src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png" alt="Perfil 2" />
-          <img className="perfis" src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png" alt="Perfil 3" />
-          <img className="perfis" src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png" alt="Perfil 4" />
-          <img className="perfis" src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png" alt="Perfil 5" />
+
         </div>
       </div>
 
       {/* Menu Lateral */}
       <div className={`aba-lateral ${isAbaLateralVisible ? 'show' : 'hide'}`}>
         <div className="menu-lateral">
-          <a id="imgs" href="#">🏠 Home</a>
-          <a id="imgs" href="#">🔍 Busca</a>
-          <a id="imgs" href="#">❤️ Favoritos</a>
-          <a id="imgs" href="#">👤 Perfil</a>
-          <a id="imgs" href="#">⚙️ Configurações</a>
+          <button id="toggleBotton" onClick={toggleAbaLateral}>
+            {isAbaLateralVisible ? '>' : '<'}
+          </button>
+          <div class="usuario">
+
+            <img className="post-profile" id="perfil" src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png" alt="Post profile" />
+            <p>Nome do usuario</p>
+          </div>
+          <div class="listinha">
+            <hr id="hr"></hr>
+            <a id="imgs" href="#">🏠 Home</a>
+            <a id="imgs" href="#">🔍 Busca</a>
+            <a id="imgs" href="#">❤️ Favoritos</a>
+            <a id="imgs" href="#">👤 Perfil</a>
+            <a id="imgs" href="#">⚙️ Configurações</a>
+          </div>
         </div>
       </div>
 
