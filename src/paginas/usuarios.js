@@ -3,7 +3,9 @@ import './Principal.css'; // Verifique se a folha de estilo está importada corr
 import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Principal() {
+let buscar = '';
+
+function Usuarios() {
   // Estado para controlar a visibilidade do formulário
   const [showPostForm, setShowPostForm] = useState(false);
 
@@ -19,19 +21,23 @@ function Principal() {
   const toggleAbaLateral = () => {
     setIsAbaLateralVisible(prevState => !prevState);
   };
-
   // Função que processa os posts
-  useEffect(() => {
-    fetch('http://localhost/Gabriel-%20Atlas/php_atlas/Ler_Posts.php')
-      .then(response => response.json())
-      .then(resultado => {
-        Cards(resultado);
-      })
-      .catch(error => {
-        console.log("Ocorreu um erro inesperado: " + error);
-      });
-  }, []);
 
+  function Filtro(){
+    
+
+    useEffect(() => {
+      fetch('http://localhost/Gabriel-%20Atlas/php_atlas/Ler_Usuarios.php')
+        .then(response => response.json())
+        .then(resultado => {
+          Cards(resultado);
+        })
+        .catch(error => {
+          console.log("Ocorreu um erro inesperado: " + error);
+        });
+    }, []);
+  }
+  Filtro()
   function Cards(posts) {
     if (!Array.isArray(posts)) {
       console.error("Posts não são um array válido");
@@ -44,10 +50,11 @@ function Principal() {
 
     for (let i = 0; i <= tamanho; i++) {
       let clone = Inicio.clone();
-      clone.find('#Oteste').attr('src', 'http://localhost/Gabriel-%20Atlas/php_atlas/' + posts[i].Imagem);
-      clone.find('#ImagemPost').attr('src', 'http://localhost/Gabriel-%20Atlas/php_atlas/' + posts[i].Imagem);
-      clone.find('.descricao-postagem').text(posts[i].Texto);
-      clone.find('.post-username').text(posts[i].Id);
+     
+      clone.find('#ImagemPost').attr('src', 'https://static.vecteezy.com/system/resources/previews/000/550/731/original/user-icon-vector.jpg' );
+      clone.find('.descricao-postagem').text(posts[i].Nome);
+  
+      clone.find('.post-username').text(posts[i].Nome);
       feed.append(clone);
       clone.css('display', 'block');
     }
@@ -97,27 +104,18 @@ function Principal() {
         </button>
 
         {/* Formulário de Postagem */}
-        {showPostForm && (
-          <form id="postar" action="http://localhost/Gabriel-%20Atlas/php_atlas/Postagens.php" method="POST" encType="multipart/form-data">
-            <div style={{ display: 'flex' }}>
-              <img id="usuario11" className="post-profile" src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png" alt="Post profile" />
-              <input placeholder="O que está acontecendo?" type="text" id="fname" name="texto" />
-            </div>
-
-            <input type="file" name="fileUpload" />
-            <br />
-            <button id="obotao" name="arquivo" type="submit">Postar</button>
-          </form>
-        )}
+      
+        <input type="text" id="buscar" value={buscar} onChange={Filtro()}></input>
 
         {/* Postagens */}
         <div id="Inicio" className="postagem">
           <div className="post-header">
-            <img className="post-profile" id="Oteste" src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png" alt="Post profile" />
-            <span className="post-username" id='test1'>Usuário 1</span>
+           
+     
           </div>
           <img className="imagem-postagem" id="ImagemPost" src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/07/17/1250579066-i764852.png" alt="Post 1" />
           <p className="descricao-postagem">Descrição da postagem aqui</p>
+        
         </div>
         
       </div>
@@ -125,4 +123,4 @@ function Principal() {
   );
 }
 
-export default Principal;
+export default Usuarios;
