@@ -14,9 +14,9 @@ $texto = $_POST["texto"];
 
 
 
-if (isset($_FILES['fileUploud'])){
-$arquivo = $_FILES['fileUploud'];
-var_dump($_FILES['fileUploud']);
+if (isset($_FILES['fileUpload'])){
+$arquivo = $_FILES['fileUpload'];
+var_dump($_FILES['fileUpload']);
 
 if ($arquivo['error'])
 die("Falha ao enviar o arquivo");
@@ -30,7 +30,7 @@ $NovoNomeDoArquivo = uniqid();
 $extensao = strtolower(pathinfo($NomeDoArquivo, PATHINFO_EXTENSION));
 
 if($extensao != "jpg" && $extensao != "png")
-die("Tipo de arquivo ao aceito");
+die("Tipo de arquivo nao aceito");
 
 $path = $pasta . $NovoNomeDoArquivo . "." . $extensao;
 
