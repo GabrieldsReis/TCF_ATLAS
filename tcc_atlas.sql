@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/10/2024 às 01:44
+-- Tempo de geração: 12/02/2025 às 00:26
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -24,6 +24,60 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `mensagens`
+--
+
+CREATE TABLE `mensagens` (
+  `Id` int(10) NOT NULL,
+  `Remetente` varchar(1000) NOT NULL,
+  `Destinatário` varchar(1000) NOT NULL,
+  `Data` datetime NOT NULL DEFAULT current_timestamp(),
+  `Mensagem` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `mensagens`
+--
+
+INSERT INTO `mensagens` (`Id`, `Remetente`, `Destinatário`, `Data`, `Mensagem`) VALUES
+(1, 'eu', 'eu', '2025-02-04 19:55:32', 'mensagem'),
+(2, '', '', '2025-02-04 19:57:21', ''),
+(3, '', '', '2025-02-04 19:57:21', ''),
+(4, '', '', '2025-02-04 19:57:21', ''),
+(5, '', '', '2025-02-04 19:57:21', ''),
+(6, '', '', '2025-02-04 19:57:21', ''),
+(7, '', '', '2025-02-04 19:57:21', ''),
+(8, '', '', '2025-02-04 19:57:21', ''),
+(9, '', '', '2025-02-04 19:57:21', ''),
+(10, '', '', '2025-02-04 19:57:25', ''),
+(11, '', '', '2025-02-04 19:57:25', ''),
+(12, '', '', '2025-02-04 19:57:25', ''),
+(13, '', '', '2025-02-04 19:57:25', ''),
+(14, '', '', '2025-02-04 19:57:25', ''),
+(15, '', '', '2025-02-04 19:57:25', ''),
+(16, '', '', '2025-02-04 19:57:25', ''),
+(17, '', '', '2025-02-04 19:57:25', ''),
+(18, '', '', '2025-02-04 19:58:11', ''),
+(19, '', '', '2025-02-04 19:58:23', ''),
+(20, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(21, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(22, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(23, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(24, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(25, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(26, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(27, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(28, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(29, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(30, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(31, 'mensagem3', 'mensagem2', '2025-02-04 20:04:35', 'mensagem1'),
+(32, '1', '2', '2025-02-04 20:05:48', '3'),
+(33, '1', '2', '2025-02-04 20:06:15', '3'),
+(34, '', '', '2025-02-11 20:24:20', '');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `postagens`
 --
 
@@ -38,23 +92,12 @@ CREATE TABLE `postagens` (
 --
 
 INSERT INTO `postagens` (`Id`, `Imagem`, `Texto`) VALUES
-(15, '', 'aaa'),
-(16, '', 'a'),
-(17, '', 'a'),
-(18, '', 'a'),
-(19, '', 'a'),
-(20, '', 'a'),
-(21, '', 'a'),
-(22, '', 'a'),
-(23, '', 'a'),
-(24, '', 'a'),
-(25, '', 'a'),
-(26, '', 'a'),
-(27, '', 'a'),
-(28, '', 'a'),
-(29, '', 'a'),
-(30, 'Movimento2.png', 'a'),
-(31, 'rele.jfif', 'dfghd');
+(33, 'arquivos/673d20a1bd533.png', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'),
+(34, 'arquivos/674647c249716.png', 'Pokemon'),
+(35, 'arquivos/674647db95383.png', 'Outro pomemon'),
+(36, 'arquivos/6758bc7b22436.png', 'abaaba'),
+(37, 'arquivos/6761f1ad1fa58.png', 'adadadad'),
+(38, 'arquivos/678ed5ea2b3e1.png', 'aaaaaaaaaaaa');
 
 -- --------------------------------------------------------
 
@@ -85,6 +128,12 @@ INSERT INTO `usuarios` (`ID`, `Nome`, `Idade`, `Email`, `Senha`, `ADM`) VALUES
 --
 
 --
+-- Índices de tabela `mensagens`
+--
+ALTER TABLE `mensagens`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Índices de tabela `postagens`
 --
 ALTER TABLE `postagens`
@@ -101,10 +150,16 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de tabela `mensagens`
+--
+ALTER TABLE `mensagens`
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
 -- AUTO_INCREMENT de tabela `postagens`
 --
 ALTER TABLE `postagens`
-  MODIFY `Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
